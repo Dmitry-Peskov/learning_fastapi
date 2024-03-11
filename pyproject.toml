@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "learning-fastapi"
+version = "0.1.0"
+description = "Учебный проект, в рамках которого я знакомлюсь с возможностями библиотеки FastAPI, а так же практикую навыки работы с системой управления миграциями alembic и работы с ORM SQlAlchemy"
+authors = ["Dmitry-Peskov <dv.peskov@yandex.ru>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+poetry = "^1.8.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
