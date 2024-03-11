@@ -1,20 +1,21 @@
 import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr, HttpUrl, PastDate, ConfigDict, validator
+
+from pydantic import BaseModel, EmailStr, PastDate, ConfigDict
 
 
-class UserGet(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    id: int
-    created_at: datetime.datetime
-    updated_at: datetime.datetime
-
-
-class UserCreate(UserGet):
+class UserCreate(BaseModel):
     fullname: str
     happy_birthday: PastDate
     email: EmailStr
     telegram_url: str
+
+
+class UserGet(UserCreate):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    created_at: datetime.datetime
+    updated_at: datetime.datetime
 
 
 class UserUpdate(BaseModel):
