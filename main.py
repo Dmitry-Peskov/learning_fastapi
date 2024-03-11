@@ -17,5 +17,10 @@ app = FastAPI(lifespan=launch_app)
 app.include_router(api_v1_router)
 
 
+@app.get("/")
+def index():
+    return {"status": 200, "message": "Welcome!"}
+
+
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)

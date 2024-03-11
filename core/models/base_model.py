@@ -1,7 +1,7 @@
 import datetime
 from sqlalchemy.sql import func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
-from sqlalchemy.types import BigInteger, DateTime
+from sqlalchemy.types import Integer, DateTime
 
 
 class BaseModel(DeclarativeBase):
@@ -12,12 +12,9 @@ class BaseModel(DeclarativeBase):
         return f"{cls.__name__.lower()}s"
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
+        Integer,
         primary_key=True,
-        autoincrement=True,
-        unique=True,
-        index=True,
-        nullable=False
+        autoincrement=True
     )
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime,
