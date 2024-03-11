@@ -1,4 +1,5 @@
-__all__ = ["BaseModel"]
+__all__ = ["BaseModel", "User"]
 
 
 from .base_model import BaseModel
+from .user import User

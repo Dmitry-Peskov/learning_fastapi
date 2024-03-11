@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 from core.database import database
 from core.models import BaseModel
+from api_v1 import api_v1_router
 
 
 @asynccontextmanager
@@ -13,6 +14,8 @@ async def launch_app(app: FastAPI):
 
 
 app = FastAPI(lifespan=launch_app)
+app.include_router(api_v1_router)
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
